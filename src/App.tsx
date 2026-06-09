@@ -14,6 +14,8 @@ type Tab = 'analytics' | 'compare';
 
 function App() {
     const { profile, loading, error, search, reset } = useProfile();
+    console.log(profile)
+
     const [tab, setTab] = useState<Tab>('analytics');
 
     const handleReset = () => { reset(); setTab('analytics'); };
@@ -71,7 +73,7 @@ function App() {
                                 <LanguageChart languages={profile.languages} />
                             </div>
                             <div className="col-right">
-                                <CommitChart activity={profile.commitActivity} />
+                                <CommitChart activity={Array.isArray(profile.commitActivity) ? profile.commitActivity : []} />
                                 <TopRepos repos={profile.topRepos} />
                             </div>
                         </div>
