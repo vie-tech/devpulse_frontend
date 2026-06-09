@@ -5,7 +5,8 @@ interface TopReposProps {
   repos: GitHubRepo[];
 }
 
-export const TopRepos = ({ repos }: TopReposProps) => (
+export const TopRepos
+    = ({ repos }: TopReposProps) => (
   <div className="chart-card">
     <h3 className="card-title">TOP REPOSITORIES</h3>
     <div className="repo-grid">
