@@ -2,13 +2,13 @@ import axios from 'axios';
 import { DevPulseProfile } from '../types';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   timeout: 30000,
 });
 
 export const fetchProfile = async (username: string): Promise<DevPulseProfile> => {
   const { data } = await api.get<{ success: boolean; data: DevPulseProfile }>(
-    `/profile/${username}`
+    `/api/profile/${username}`
   );
   return data.data;
 };
